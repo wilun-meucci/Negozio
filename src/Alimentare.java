@@ -31,16 +31,11 @@ public class Alimentare extends Prodotto{
 
         if (( (this.getAnnoScadenza() < calendar.get(Calendar.YEAR) ) || (  (this.getMeseScadenza() < calendar.get(Calendar.MONTH) )&& (this.getAnnoScadenza() == calendar.get(Calendar.YEAR) ))))
         {
-            //this.prezzo = getPrezzo()
+            
             return true;
         }
 
-        if ( (this.getMeseScadenza() == calendar.get(Calendar.MONTH)) && (this.getAnnoScadenza() == calendar.get(Calendar.YEAR) ) )
-        {
-            //this.prezzo = getPrezzo() - getPrezzo()/2;
-            
-        }
-        //this.prezzo = getPrezzo() - getPrezzo()/10;
+        
         return false;
     }
     public void applicaSconto ()
@@ -52,7 +47,8 @@ public class Alimentare extends Prodotto{
         }
         else if((this.getMeseScadenza() == calendar.get(Calendar.MONTH)) && (this.getAnnoScadenza() == calendar.get(Calendar.YEAR)))
         {
-            this.prezzo = getPrezzo() - getPrezzo()/2;
+            System.out.println("is problem");
+            this.prezzo = getPrezzo() - (getPrezzo()/100)*50;
         }
         else 
         {
@@ -62,7 +58,7 @@ public class Alimentare extends Prodotto{
 
     @Override
     public String toString() {
-        return super.toString() + "Alimentare: annoScadenza=" + annoScadenza + ", meseScadenza=" + meseScadenza;
+        return super.toString() + " Alimentare: annoScadenza=" + annoScadenza + ", meseScadenza=" + meseScadenza;
     }
 
     
